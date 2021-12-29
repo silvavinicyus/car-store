@@ -104,9 +104,7 @@
 
       $fragment.appendChild($tr);
       $carTable.get()[0].lastElementChild.appendChild($fragment);
-    };        
-
-    
+    };            
   }
 
   app();
