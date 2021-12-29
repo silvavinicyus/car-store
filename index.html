@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="stylesheet" href="index.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <h1 data-js="nome-empresa" value=""></h1>
+  <h2 data-js="telefone-empresa" value=""></h2>
+  <br>
+
+  <form action="javascript:" method="post">
+    <p>Marca e Modelo do Carro</p> <input type="text" data-js="marca-input" placeholder="Ford Focus">
+    <p>Ano do Carro</p> <input type="text" data-js="ano-input" placeholder="2019">
+    <p>Placa do Carro</p> <input type="text" data-js="placa-input" placeholder="ABC-8U95">
+    <p>Cor do Carro</p> <input type="text" data-js="cor-input" placeholder="Azul">
+    <p>imagem do Carro (url)</p> <input type="text" data-js="imagem-input" placeholder="Imagem do carro">
+
+    <p>
+      <button type="submit">Cadastrar</button>
+    </p>
+  </form>
+
+  <table border="1" data-js="car-table">
+    <thead>
+      <tr>
+        <th>Marca / Modelo</th>
+        <th>Ano</th>
+        <th>Placa</th>
+        <th>Cor</th>
+        <th>Imagem do carro</th>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+
+
+  <script src="DOM.js"></script>
+  <script src="index.js"></script>
+</body>
+</html>
