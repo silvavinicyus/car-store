@@ -10,8 +10,8 @@
     let $carTable = new DOM('[data-js="car-table"]');
     var $nomeEmpresa = new DOM('[data-js="nome-empresa"]');
     var $telefoneEmpresa = new DOM('[data-js="telefone-empresa"]');    
-    var $form = new DOM('form');
-  
+    var $form = new DOM('form');            
+      
     $form.on('submit', handleCreateCar);
       
     (function handleNameAndPhone(){     
@@ -30,6 +30,9 @@
 
       console.log(ajax.responseText);
     })();
+        
+
+   
             
     function cleanCarFields() {
       $marcaInput.get()[0].value = "";
@@ -65,6 +68,7 @@
       var $tdPlaca = doc.createElement('td');
       var $tdCor = doc.createElement('td');
       var $tdImg = doc.createElement('td');
+      var $deleteImg = doc.createElement('td');       
                                 
       $tdMarca.appendChild(doc.createTextNode(car['marca']));      
       $tdAno.appendChild(doc.createTextNode(car['ano']));      
@@ -72,19 +76,35 @@
       $tdCor.appendChild(doc.createTextNode(car['cor']));
 
       var $img = doc.createElement('img');
-      $img.src = car['imagem'];      
-
+      $img.src = car['imagem']; 
       $tdImg.appendChild($img);      
+      
+      var $dumpImg = doc.createElement('img');
+      $dumpImg.src = './assets/lixeira.png';
+      $dumpImg.style.width = "40px";
+      $dumpImg.style.height = "40px";
+
+      $deleteImg.appendChild($dumpImg);
+
 
       $tr.appendChild($tdMarca);
       $tr.appendChild($tdAno);
       $tr.appendChild($tdPlaca);
       $tr.appendChild($tdCor);              
-      $tr.appendChild($tdImg);      
-              
+      $tr.appendChild($tdImg);   
+      $tr.appendChild($deleteImg); 
+                                          
+      $deleteImg.onclick = function(event) {
+        event.preventDefault();
+
+        var $child = $deleteImg.parentNode;
+  
+        $carTable.get()[0].lastElementChild.removeChild($child);
+      }
+
       $fragment.appendChild($tr);
       $carTable.get()[0].lastElementChild.appendChild($fragment);
-    };    
+    };            
   }
 
   app();
